@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\City;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,11 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $city_names = ['Skopje', 'Veles', 'Prilep', 'Bitola', 'Ohrid', 'Struga', 'Debar'];
+        foreach ($city_names as $city_name) {
+            City::updateOrCreate([
+                'name' => $city_name
+            ]);
+        }
     }
 }
